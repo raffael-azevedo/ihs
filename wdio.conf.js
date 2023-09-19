@@ -12,12 +12,12 @@
             capabilities:[{
                 // Todas as capabilities precisam do prefix do Appium
                 "appium:platformName": "Android",
-                "appium:platformVersion": "10.0",
-                "appium:deviceName": "Pixel 6",
-                'appium:automationName': 'UiAutomator2',
-                "appium:app": join(process.cwd(), './app/android/build-1695131068450.apk'),
+                "appium:platformVersion": "12",
+                "appium:deviceName": "pixel2",
+                'appium:automationName': 'uiautomator2',
+                "appium:app": join(process.cwd(), './app/android/ish.apk'),
                 "appium:appPackage": "com.desenvolvimentoatlante.atlanteti",
-                "appium:appWaitActivity": '.MainActivity',
+                "appium:appWaitActivity": 'MainActivity',
             }],
               mochaOpts: {
                 timeout: 80000 

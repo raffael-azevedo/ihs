@@ -1,21 +1,21 @@
 class LoginScreen {
-    get #enterCód(){return $('android=new UiSelector().text("Insira o código")')}
-    get #ValidarBtn() { return $('android=new UiSelector().text("Validar")') }
-    get #UserLogin() { return $('android=new UiSelector().text("Login")') }
-    get #UserSenha() { return $('android=new UiSelector().text("Senha")') }
-    
+    codeTextField = '//android.widget.EditText[@text="Insira o código"]'
+    validateButton = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[1]/android.widget.Button'
+    usernameTextField = '//android.widget.EditText[@text="Login"]'
+    passwordTextField = '//android.widget.EditText[@text="Senha"]'
 
-    async goToLogin(cod){
-        await this.#enterCód.setValue(cod)
+    async goToLogin(code){
+        await $(this.codeTextField).waitForExist({timeout: 5000})
+        await $(this.codeTextField).setValue(code)
     }
 
-    async ButtonValidar(){
-        await this.#ValidarBtn.click()
+    async validate(){
+        await $(this.validateButton).click()
     }
 
-    async Login(user, senha){
-      await  this.#UserLogin.setValue(user)
-      await  this.#UserSenha.setValue(senha)
+    async login(user, senha){
+      await $(this.usernameTextField).setValue(user)
+      await $(this.passwordTextField).setValue(senha)
     }
 }
 
